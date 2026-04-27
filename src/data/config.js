@@ -16,7 +16,7 @@ export const CONFIG = {
     summary:
       "Full Stack Developer with 3+ years developing web and mobile applications using the MERN stack, React Native, and TypeScript — from REST API design to production deployment. Skilled in real-time systems (Socket.IO), Apache Kafka, Redis caching, and secure APIs (JWT, RBAC). A collaborative team player who communicates directly with clients and uses AI tools to ship faster.",
     availableForWork: true, // shows/hides "Open to work" badge
-    resumeLink: "/resume.pdf", // path to resume PDF in /public folder (or external URL)
+    resumeLink: "./resume.pdf", // path to resume PDF in /public folder (or external URL)
   },
 
   // ── SOCIAL / LINKS ──────────────────────────────────────────
