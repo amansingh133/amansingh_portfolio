@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { HiEnvelope } from "react-icons/hi2";
-import { FaLinkedinIn } from "react-icons/fa6";
+import { FaLinkedinIn, FaWhatsapp } from "react-icons/fa6";
 import { HiArrowTopRightOnSquare } from "react-icons/hi2";
 import { CONFIG } from "../data/config.js";
 
@@ -93,6 +93,40 @@ export default function ContactSection() {
                 style={{ fontSize: "1rem", padding: "14px 32px" }}
               >
                 LinkedIn <HiArrowTopRightOnSquare size={14} />
+              </motion.a>
+            )}
+            {CONFIG.social.whatsapp && (
+              <motion.a
+                href={CONFIG.social.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.04, y: -2 }}
+                whileTap={{ scale: 0.97 }}
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 8,
+                  fontSize: "1rem",
+                  padding: "14px 32px",
+                  borderRadius: "var(--radius-md)",
+                  fontFamily: "'Syne',sans-serif",
+                  fontWeight: 600,
+                  border: "1px solid rgba(37,211,102,0.4)",
+                  color: "#25d366",
+                  background: "rgba(37,211,102,0.08)",
+                  transition: "all 0.2s",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = "rgba(37,211,102,0.15)";
+                  e.currentTarget.style.boxShadow =
+                    "0 0 24px rgba(37,211,102,0.2)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "rgba(37,211,102,0.08)";
+                  e.currentTarget.style.boxShadow = "none";
+                }}
+              >
+                <FaWhatsapp size={18} /> WhatsApp
               </motion.a>
             )}
           </div>

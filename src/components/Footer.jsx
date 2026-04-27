@@ -1,5 +1,10 @@
 import { useNavigate } from "react-router-dom";
-import { FaGithub, FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
+import {
+  FaGithub,
+  FaLinkedinIn,
+  FaXTwitter,
+  FaWhatsapp,
+} from "react-icons/fa6";
 import { HiEnvelope } from "react-icons/hi2";
 import { CONFIG } from "../data/config.js";
 
@@ -165,6 +170,14 @@ export default function Footer() {
                     label="Twitter"
                   />
                 )}
+                {CONFIG.social.whatsapp && (
+                  <SocialLink
+                    href={CONFIG.social.whatsapp}
+                    icon={<FaWhatsapp size={14} />}
+                    label="WhatsApp"
+                    accent="#25d366"
+                  />
+                )}
                 <SocialLink
                   href={`mailto:${CONFIG.personal.email}`}
                   icon={<HiEnvelope size={14} />}
@@ -210,7 +223,8 @@ export default function Footer() {
   );
 }
 
-function SocialLink({ href, icon, label }) {
+function SocialLink({ href, icon, label, accent }) {
+  const hoverColor = accent || "var(--accent)";
   return (
     <a
       href={href}
@@ -224,7 +238,7 @@ function SocialLink({ href, icon, label }) {
         color: "var(--text-muted)",
         transition: "color 0.2s",
       }}
-      onMouseEnter={(e) => (e.currentTarget.style.color = "var(--accent)")}
+      onMouseEnter={(e) => (e.currentTarget.style.color = hoverColor)}
       onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-muted)")}
     >
       {icon} {label} ↗

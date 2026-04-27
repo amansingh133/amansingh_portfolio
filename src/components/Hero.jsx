@@ -2,19 +2,64 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { TypeAnimation } from "react-type-animation";
-import { FaGithub, FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
+import {
+  FaGithub,
+  FaLinkedinIn,
+  FaXTwitter,
+  FaWhatsapp,
+} from "react-icons/fa6";
 import { HiArrowRight, HiArrowDown } from "react-icons/hi2";
 import { CONFIG } from "../data/config.js";
 
 const FLOAT_SKILLS = [
   "React",
-  "Node.js",
-  "Kafka",
-  "MongoDB",
-  "Socket.IO",
-  "TypeScript",
-  "Redis",
   "Next.js",
+  "TypeScript",
+  "Redux",
+  "HTML5",
+  "CSS3",
+  "Material UI",
+  "Bootstrap",
+  "Tailwind CSS",
+  "Google Analytics",
+  "React Native",
+  "Offline-First Architecture",
+  "Local Storage",
+  "Navigation",
+  "Node.js",
+  "Express.js",
+  "REST APIs",
+  "JWT Authentication",
+  "WebSockets (Socket.IO)",
+  "RBAC",
+  "MongoDB",
+  "Mongoose",
+  "MySQL",
+  "Redis",
+  "Apache Kafka",
+  "Producers & Consumers",
+  "Topic Partitioning",
+  "Offset Management",
+  "Gemini API",
+  "Claude API",
+  "OpenAI API",
+  "AI-Powered Feature Integration",
+  "Prompt Engineering",
+  "Context-Aware Query Building",
+  "AI-Assisted Development",
+  "OWASP Top 10",
+  "Input Validation",
+  "Rate Limiting",
+  "TLS Encryption",
+  "CSP / HSTS Headers",
+  "Google OAuth",
+  "Agile",
+  "Microservices",
+  "Event-Driven Architecture",
+  "Real-Time Systems",
+  "Offline-First",
+  "CRUD",
+  "Pagination",
 ];
 
 export default function Hero() {
@@ -79,8 +124,8 @@ export default function Hero() {
             opacity: 1,
             y: [0, -10, 0],
             transition: {
-              delay: 1.5 + i * 0.15,
-              duration: 3 + i * 0.4,
+              delay: 3 + i * 0.15,
+              duration: 1.5 + i * 0.4,
               repeat: Infinity,
               ease: "easeInOut",
             },
@@ -269,6 +314,26 @@ export default function Hero() {
                 title="Twitter / X"
               >
                 <FaXTwitter size={20} />
+              </a>
+            )}
+            {CONFIG.social.whatsapp && (
+              <a
+                href={CONFIG.social.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-icon"
+                title="WhatsApp"
+                style={{ color: "var(--text-muted)" }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.color = "#25d366";
+                  e.currentTarget.style.background = "rgba(37,211,102,0.1)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color = "var(--text-muted)";
+                  e.currentTarget.style.background = "transparent";
+                }}
+              >
+                <FaWhatsapp size={20} />
               </a>
             )}
           </motion.div>

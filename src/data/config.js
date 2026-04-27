@@ -5,38 +5,39 @@
 // ============================================================
 
 export const CONFIG = {
-
   // ── PERSONAL ────────────────────────────────────────────────
   personal: {
     name: "Aman Singh",
     title: "Full Stack Web & Mobile Developer",
     tagline: "Building scalable apps from REST APIs to real-time systems.",
     email: "amansingh13394@gmail.com",
-    phone: "+91-7982484338",
+    phone: "+91-8130914228",
     location: "Rohini, Delhi, India",
     summary:
       "Full Stack Developer with 3+ years developing web and mobile applications using the MERN stack, React Native, and TypeScript — from REST API design to production deployment. Skilled in real-time systems (Socket.IO), Apache Kafka, Redis caching, and secure APIs (JWT, RBAC). A collaborative team player who communicates directly with clients and uses AI tools to ship faster.",
-    availableForWork: true,           // shows/hides "Open to work" badge
-    resumeLink: "/resume.pdf",        // path to resume PDF in /public folder (or external URL)
+    availableForWork: true, // shows/hides "Open to work" badge
+    resumeLink: "/resume.pdf", // path to resume PDF in /public folder (or external URL)
   },
 
   // ── SOCIAL / LINKS ──────────────────────────────────────────
   social: {
-    github: "https://github.com/",           // your GitHub profile URL
+    github: "https://github.com/amansingh133", // your GitHub profile URL
     linkedin: "https://linkedin.com/in/aman-singh-xiii",
-    twitter: "",                             // leave empty to hide
-    website: "",                             // personal website, leave empty to hide
+    twitter: "", // leave empty to hide
+    website: "", // personal website, leave empty to hide
+    whatsapp:
+      "https://wa.me/918130914228?text=Hi%20Aman%2C%20I%20came%20across%20your%20portfolio%20and%20wanted%20to%20connect!",
   },
 
   // ── NAVIGATION ──────────────────────────────────────────────
   // Sections shown in the navbar. 'path' uses hash (#) for same-page sections
   // or '/projects' for the projects page
   nav: [
-    { label: "About",      path: "#about"      },
-    { label: "Skills",     path: "#skills"     },
+    { label: "About", path: "#about" },
+    { label: "Skills", path: "#skills" },
     { label: "Experience", path: "#experience" },
-    { label: "Projects",   path: "/projects"   },
-    { label: "Contact",    path: "#contact"    },
+    { label: "Projects", path: "/projects" },
+    { label: "Contact", path: "#contact" },
   ],
 
   // ── SKILLS ──────────────────────────────────────────────────
@@ -44,17 +45,40 @@ export const CONFIG = {
     {
       category: "Frontend",
       icon: "🖥️",
-      items: ["React.js", "Next.js", "TypeScript", "Redux", "HTML5", "CSS3", "Material UI", "Bootstrap"],
+      items: [
+        "React.js",
+        "Next.js",
+        "TypeScript",
+        "Redux",
+        "HTML5",
+        "CSS3",
+        "Material UI",
+        "Bootstrap",
+        "Tailwind CSS",
+        "Google Analytics",
+      ],
     },
     {
       category: "Mobile",
       icon: "📱",
-      items: ["React Native", "Offline-First Architecture", "Local Storage", "Navigation"],
+      items: [
+        "React Native",
+        "Offline-First Architecture",
+        "Local Storage",
+        "Navigation",
+      ],
     },
     {
       category: "Backend",
       icon: "⚙️",
-      items: ["Node.js", "Express.js", "REST APIs", "JWT Authentication", "WebSockets (Socket.IO)", "RBAC"],
+      items: [
+        "Node.js",
+        "Express.js",
+        "REST APIs",
+        "JWT Authentication",
+        "WebSockets (Socket.IO)",
+        "RBAC",
+      ],
     },
     {
       category: "Databases",
@@ -64,22 +88,50 @@ export const CONFIG = {
     {
       category: "Messaging & Streaming",
       icon: "📨",
-      items: ["Apache Kafka", "Producers & Consumers", "Topic Partitioning", "Offset Management"],
+      items: [
+        "Apache Kafka",
+        "Producers & Consumers",
+        "Topic Partitioning",
+        "Offset Management",
+      ],
     },
     {
       category: "AI Tools",
       icon: "🤖",
-      items: ["Gemini API", "Claude API", "OpenAI API", "Prompt Engineering", "Context-Aware Query Building"],
+      items: [
+        "Gemini API",
+        "Claude API",
+        "OpenAI API",
+        "AI-Powered Feature Integration",
+        "Prompt Engineering",
+        "Context-Aware Query Building",
+        "AI-Assisted Development",
+      ],
     },
     {
       category: "Security",
       icon: "🔐",
-      items: ["OWASP Top 10", "Input Validation", "Rate Limiting", "TLS Encryption", "CSP / HSTS Headers"],
+      items: [
+        "OWASP Top 10",
+        "Input Validation",
+        "Rate Limiting",
+        "TLS Encryption",
+        "CSP / HSTS Headers",
+        "Google OAuth",
+      ],
     },
     {
       category: "Concepts",
       icon: "💡",
-      items: ["Agile", "Microservices", "Event-Driven Architecture", "Real-Time Systems", "Offline-First"],
+      items: [
+        "Agile",
+        "Microservices",
+        "Event-Driven Architecture",
+        "Real-Time Systems",
+        "Offline-First",
+        "CRUD",
+        "Pagination",
+      ],
     },
   ],
 
@@ -89,7 +141,7 @@ export const CONFIG = {
       role: "Software Developer",
       company: "Laxmi Enterprises",
       period: "Sep 2025 – Present",
-      location: "Delhi, India",
+      location: "",
       current: true,
       bullets: [
         "Design and build scalable distributed backend systems using Node.js, Express.js, Apache Kafka, and Redis to process high-throughput data pipelines.",
@@ -103,7 +155,7 @@ export const CONFIG = {
       role: "Freelance Full Stack Developer",
       company: "Independent",
       period: "Jun 2025 – Aug 2025",
-      location: "Remote",
+      // location: "Remote",
       current: false,
       bullets: [
         "Delivered end-to-end web and mobile applications for multiple clients using React.js, React Native, Next.js, Node.js, and Express.js.",
@@ -116,12 +168,11 @@ export const CONFIG = {
       role: "Software Developer",
       company: "Progressix",
       period: "Apr 2022 – Jun 2025",
-      location: "Delhi, India",
+      // location: "Delhi, India",
       current: false,
       bullets: [
         "Architected and shipped multiple full-stack MERN applications with secure REST APIs protected by JWT authentication and RBAC.",
         "Built admin dashboards with advanced filtering, pagination, and Excel export; improved performance by integrating Redis caching, cutting API response times.",
-        "Mentored junior developers through code reviews, promoting Agile best practices and consistent coding standards across the team.",
       ],
       tech: ["MERN Stack", "JWT", "RBAC", "Redis", "Excel Export"],
     },
@@ -142,7 +193,7 @@ export const CONFIG = {
       role: "Sr. Representative Operations",
       company: "Concentrix",
       period: "Sep 2017 – Mar 2021",
-      location: "Delhi, India",
+      // location: "Delhi, India",
       current: false,
       bullets: [
         "Managed 80–90+ customer emails daily, consistently resolving issues within SLA deadlines.",
@@ -172,7 +223,7 @@ export const CONFIG = {
       category: "Backend",
       featured: true,
       liveUrl: "",
-      githubUrl: "",
+      githubUrl: "https://github.com/amansingh133/kafka-order",
       color: "#00e5ff",
     },
     {
@@ -189,7 +240,7 @@ export const CONFIG = {
       category: "Mobile",
       featured: true,
       liveUrl: "",
-      githubUrl: "",
+      githubUrl: "https://github.com/amansingh133/ai-product-advisor",
       color: "#a855f7",
     },
     {
@@ -205,8 +256,8 @@ export const CONFIG = {
       tech: ["MERN Stack", "JWT", "RBAC", "TLS", "OWASP"],
       category: "Backend",
       featured: true,
-      liveUrl: "",
-      githubUrl: "",
+      liveUrl: "https://owasp-compliance-demo.onrender.com/",
+      githubUrl: "https://github.com/amansingh133/owasp-demo",
       color: "#f59e0b",
     },
     {
@@ -223,7 +274,7 @@ export const CONFIG = {
       category: "Mobile",
       featured: false,
       liveUrl: "",
-      githubUrl: "",
+      githubUrl: "https://github.com/amansingh133/media-app",
       color: "#10b981",
     },
     {
@@ -236,11 +287,11 @@ export const CONFIG = {
         "Built a full-stack MERN form submission platform with 3-tier RBAC (User, Admin, Super Admin) and location-based access control, restricting data visibility and actions by both role and geographic scope.",
         "Developed a Node.js / Express.js backend with secure APIs for form creation, editing, and approval workflows; admin dashboard includes real-time tracking, filtering, pagination, and Excel export.",
       ],
-      tech: ["React.js", "Node.js", "Express.js", "MongoDB", "RBAC"],
+      tech: ["React.js", "Node.js", "Express.js", "MongoDB", "RBAC", "LBAC"],
       category: "Full Stack",
       featured: false,
       liveUrl: "",
-      githubUrl: "",
+      githubUrl: "https://github.com/amansingh133/form-submission-rbac-lbac-fs",
       color: "#ec4899",
     },
     {
@@ -255,8 +306,8 @@ export const CONFIG = {
       tech: ["React.js", "Node.js", "MongoDB", "Express.js"],
       category: "Full Stack",
       featured: false,
-      liveUrl: "",
-      githubUrl: "",
+      liveUrl: "https://flixxit-40rb.onrender.com",
+      githubUrl: "https://github.com/amansingh133/flixxit",
       color: "#ef4444",
     },
     {
@@ -271,8 +322,8 @@ export const CONFIG = {
       tech: ["React.js", "Material UI", "RBAC"],
       category: "Frontend",
       featured: false,
-      liveUrl: "",
-      githubUrl: "",
+      liveUrl: "https://admin.collegenetwork.in/",
+      githubUrl: "https://gitlab.com/collage1692341/collage",
       color: "#3b82f6",
     },
     {
@@ -291,6 +342,7 @@ export const CONFIG = {
       githubUrl: "",
       color: "#06b6d4",
     },
+
     {
       id: "multiplayer-games",
       title: "Real-Time Multiplayer Games",
@@ -304,7 +356,7 @@ export const CONFIG = {
       category: "Full Stack",
       featured: false,
       liveUrl: "",
-      githubUrl: "",
+      githubUrl: "https://github.com/amansingh133/ludo_online_multiplayer",
       color: "#f97316",
     },
     {
@@ -319,9 +371,57 @@ export const CONFIG = {
       tech: ["Next.js", "Authentication", "SSR"],
       category: "Frontend",
       featured: false,
-      liveUrl: "",
-      githubUrl: "",
+      liveUrl: "https://collegenetwork.in/",
+      githubUrl: "https://gitlab.com/collage1692341/collegenetwork-frontend",
       color: "#8b5cf6",
+    },
+    {
+      id: "boost-my-resume",
+      title: "Boost My Resume",
+      subtitle: "Resume Upload & Management Platform",
+      description:
+        "A Next.js platform for uploading, managing, and browsing resumes with Google Authentication and analytics tracking.",
+      bullets: [
+        "Built resume upload flow supporting PDF and Word formats with client-side file type and size validation.",
+        "Integrated Google OAuth for secure authentication and Google Analytics for tracking user interactions.",
+        "Implemented paginated, searchable resume listing with real-time search filtering.",
+      ],
+      tech: [
+        "Next.js",
+        "Google OAuth",
+        "Google Analytics",
+        "File Upload & Validation",
+        "Pagination",
+      ],
+      category: "Frontend",
+      featured: false,
+      liveUrl: "https://boostmyresume.in/",
+      githubUrl: "https://github.com/amansingh133/boostMyResume",
+      color: "#4285f4",
+    },
+    {
+      id: "jaivic-wellness",
+      title: "Jaivic Wellness",
+      subtitle: "Media Upload & Wellness Platform",
+      description:
+        "A Next.js wellness platform with login, full media lifecycle management, and a separate Express.js backend.",
+      bullets: [
+        "Built media upload system supporting images, videos, and audio via drag & drop or live browser camera and microphone capture.",
+        "Implemented in-browser image snapshot, video and audio recording with preview before upload and 50MB size enforcement.",
+        "Developed a separate Express.js backend with REST APIs for upload, retrieval, and deletion integrated via a service layer.",
+      ],
+      tech: [
+        "Next.js",
+        "Express.js",
+        "Material UI",
+        "Drag & Drop",
+        "REST APIs",
+      ],
+      category: "Full Stack",
+      featured: false,
+      liveUrl: "https://jaivicwellness.com/",
+      githubUrl: "https://github.com/amansingh133/jaivicwellness",
+      color: "#10b981",
     },
   ],
 
@@ -350,7 +450,7 @@ export const CONFIG = {
   contact: {
     heading: "Let's Build Something",
     subheading:
-      "Open to full-time roles, freelance projects, and interesting collaborations.",
+      "Open to full-time and part-time roles, freelance projects, and interesting collaborations.",
     ctaLabel: "Say Hello",
   },
 };

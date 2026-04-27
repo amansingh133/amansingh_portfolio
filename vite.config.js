@@ -1,5 +1,5 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
 // ─── GITHUB PAGES CONFIG ────────────────────────────────────────────────────
 // If hosting at https://username.github.io/repo-name  →  set base: '/repo-name/'
@@ -7,5 +7,5 @@ import react from '@vitejs/plugin-react'
 // ────────────────────────────────────────────────────────────────────────────
 export default defineConfig({
   plugins: [react()],
-  base: '/',
-})
+  base: "/aman-portfolio/",
+});

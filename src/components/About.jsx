@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { HiEnvelope, HiMapPin, HiArrowDownTray } from "react-icons/hi2";
-import { FaLinkedinIn } from "react-icons/fa6";
+import { FaLinkedinIn, FaWhatsapp } from "react-icons/fa6";
 import { CONFIG } from "../data/config.js";
 
 export default function About() {
@@ -73,6 +73,15 @@ export default function About() {
                 value="aman-singh-xiii"
                 href={CONFIG.social.linkedin}
               />
+              {CONFIG.social.whatsapp && (
+                <InfoRow
+                  icon={<FaWhatsapp size={15} />}
+                  label="WhatsApp"
+                  value={CONFIG.personal.phone}
+                  href={CONFIG.social.whatsapp}
+                  accent="#25d366"
+                />
+              )}
             </div>
 
             {CONFIG.personal.resumeLink && (
@@ -255,16 +264,12 @@ export default function About() {
   );
 }
 
-function InfoRow({ icon, label, value, href }) {
+function InfoRow({ icon, label, value, href, accent }) {
+  const color = accent || "var(--accent)";
   const content = (
     <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
       <span
-        style={{
-          color: "var(--accent)",
-          width: 24,
-          display: "flex",
-          justifyContent: "center",
-        }}
+        style={{ color, width: 24, display: "flex", justifyContent: "center" }}
       >
         {icon}
       </span>
@@ -279,10 +284,7 @@ function InfoRow({ icon, label, value, href }) {
         {label}
       </span>
       <span
-        style={{
-          fontSize: "0.88rem",
-          color: href ? "var(--accent)" : "var(--text)",
-        }}
+        style={{ fontSize: "0.88rem", color: href ? color : "var(--text)" }}
       >
         {value}
       </span>
