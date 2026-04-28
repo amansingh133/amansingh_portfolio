@@ -5,7 +5,7 @@ import { CONFIG } from "../data/config.js";
 
 export default function About() {
   const stats = [
-    { value: "3+", label: "Years Experience" },
+    { value: "4+", label: "Years Experience" },
     { value: "10+", label: "Projects Shipped" },
     { value: "5+", label: "Tech Stacks" },
     { value: "2", label: "Languages" },
