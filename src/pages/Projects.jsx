@@ -6,6 +6,7 @@ import { FaGithub } from "react-icons/fa6";
 import { HiArrowTopRightOnSquare } from "react-icons/hi2";
 import { CONFIG } from "../data/config.js";
 import ProjectCard from "../components/ProjectCard.jsx";
+import useIsMobile from "../hooks/useIsMobile.js";
 
 const pageVariants = {
   initial: { opacity: 0, y: 20 },
@@ -349,6 +350,7 @@ export default function Projects() {
 
 function ListRow({ project, index }) {
   const [open, setOpen] = useState(false);
+  const isMobile = useIsMobile();
 
   return (
     <motion.div
@@ -380,6 +382,7 @@ function ListRow({ project, index }) {
           padding: "20px 24px",
           cursor: "pointer",
           gap: 12,
+          flexWrap: "wrap",
         }}
       >
         <div
@@ -387,55 +390,89 @@ function ListRow({ project, index }) {
             display: "flex",
             alignItems: "center",
             gap: 16,
-            flex: 1,
-            minWidth: 0,
+            flex: isMobile ? "1 1 100%" : 1,
+            justifyContent: "space-between",
           }}
         >
-          <div
-            style={{
-              width: 10,
-              height: 10,
-              borderRadius: "50%",
-              flexShrink: 0,
-              background: project.color || "var(--accent)",
-              boxShadow: `0 0 10px ${project.color || "var(--accent)"}`,
-            }}
-          />
-          <div style={{ minWidth: 0 }}>
-            <h3
+          <>
+            <div
               style={{
-                fontFamily: "'Syne',sans-serif",
-                fontWeight: 700,
-                fontSize: "1rem",
-                marginBottom: 2,
+                display: "flex",
+                alignItems: "center",
+                gap: 16,
+                minWidth: 0,
               }}
             >
-              {project.title}
-            </h3>
-            <p
-              style={{
-                fontSize: "0.78rem",
-                color: "var(--text-muted)",
-                fontFamily: "'Fira Code',monospace",
-                whiteSpace: "nowrap",
-                overflow: "hidden",
-                textOverflow: "ellipsis",
-              }}
-            >
-              {project.subtitle}
-            </p>
-          </div>
+              <div
+                style={{
+                  width: 10,
+                  height: 10,
+                  borderRadius: "50%",
+                  flexShrink: 0,
+                  background: project.color || "var(--accent)",
+                  boxShadow: `0 0 10px ${project.color || "var(--accent)"}`,
+                }}
+              />
+
+              <div style={{ minWidth: 0 }}>
+                <h3
+                  style={{
+                    fontFamily: "'Syne',sans-serif",
+                    fontWeight: 700,
+                    fontSize: "1rem",
+                    marginBottom: 2,
+                  }}
+                >
+                  {project.title}
+                </h3>
+
+                <p
+                  style={{
+                    fontSize: "0.78rem",
+                    color: "var(--text-muted)",
+                    fontFamily: "'Fira Code',monospace",
+                    whiteSpace: "nowrap",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                  }}
+                >
+                  {project.subtitle}
+                </p>
+              </div>
+            </div>
+
+            {/* ✅ ARROW NOW HERE */}
+            {isMobile && (
+              <motion.div
+                animate={{ rotate: open ? 180 : 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                <HiChevronDown
+                  size={16}
+                  style={{ color: "var(--text-muted)" }}
+                />
+              </motion.div>
+            )}
+          </>
         </div>
         <div
           style={{
             display: "flex",
             alignItems: "center",
             gap: 10,
-            flexShrink: 0,
+            flexWrap: isMobile ? "wrap" : "nowrap",
+            width: isMobile ? "100%" : "auto",
+            justifyContent: "flex-start",
           }}
         >
-          <div style={{ display: "flex", gap: 6 }}>
-            {project.tech.slice(0, 3).map((t) => (
+          <div
+            style={{
+              display: "flex",
+              gap: 6,
+              flexWrap: "wrap",
+            }}
+          >
+            {project.tech.map((t) => (
               <span
                 key={t}
                 className="tech-badge"
@@ -444,18 +481,16 @@ function ListRow({ project, index }) {
                 {t}
               </span>
             ))}
-            {project.tech.length > 3 && (
-              <span className="tech-badge" style={{ fontSize: "0.65rem" }}>
-                +{project.tech.length - 3}
-              </span>
-            )}
           </div>
-          <motion.div
-            animate={{ rotate: open ? 180 : 0 }}
-            transition={{ duration: 0.2 }}
-          >
-            <HiChevronDown size={16} style={{ color: "var(--text-muted)" }} />
-          </motion.div>
+          {!isMobile && (
+            <motion.div
+              style={{ marginLeft: "auto" }}
+              animate={{ rotate: open ? 180 : 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              <HiChevronDown size={16} style={{ color: "var(--text-muted)" }} />
+            </motion.div>
+          )}
         </div>
       </div>
 
