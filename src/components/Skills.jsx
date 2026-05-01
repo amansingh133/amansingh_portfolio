@@ -68,16 +68,8 @@ export default function Skills() {
                 ease: [0.22, 1, 0.36, 1],
               }}
               whileHover={{ y: -6, transition: { duration: 0.2 } }}
-              onHoverStart={() => {
-                if (!isMobile) setActive(gi);
-              }}
-              onHoverEnd={() => {
-                if (!isMobile) setActive(null);
-              }}
               onClick={() => {
-                if (isMobile) {
-                  setActive(active === gi ? null : gi);
-                }
+                setActive(active === gi ? null : gi);
               }}
               style={{
                 padding: "24px",
