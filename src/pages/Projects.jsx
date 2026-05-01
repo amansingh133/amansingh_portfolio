@@ -373,28 +373,100 @@ function ListRow({ project, index }) {
         (e.currentTarget.style.borderColor = "var(--card-border)")
       }
     >
-      <div
-        onClick={() => setOpen((o) => !o)}
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          padding: "20px 24px",
-          cursor: "pointer",
-          gap: 12,
-          flexWrap: "wrap",
-        }}
-      >
+      {isMobile ? (
+        /* ── Mobile header: dot · text block · arrow ── */
         <div
+          onClick={() => setOpen((o) => !o)}
+          style={{
+            display: "flex",
+            alignItems: "flex-start" /* all items pin to top */,
+            gap: 12,
+            padding: "20px 24px",
+            cursor: "pointer",
+          }}
+        >
+          {/* Color dot — offset slightly so it sits next to the first text line */}
+          <div
+            style={{
+              width: 10,
+              height: 10,
+              borderRadius: "50%",
+              flexShrink: 0,
+              marginTop: 6,
+              background: project.color || "var(--accent)",
+              boxShadow: `0 0 10px ${project.color || "var(--accent)"}`,
+            }}
+          />
+
+          {/* Title + subtitle + tech badges */}
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <h3
+              style={{
+                fontFamily: "'Syne',sans-serif",
+                fontWeight: 700,
+                fontSize: "1rem",
+                marginBottom: 2,
+                lineHeight: 1.35,
+              }}
+            >
+              {project.title}
+            </h3>
+            <p
+              style={{
+                fontSize: "0.78rem",
+                color: "var(--text-muted)",
+                fontFamily: "'Fira Code',monospace",
+                marginBottom: 10,
+                lineHeight: 1.5,
+              }}
+            >
+              {project.subtitle}
+            </p>
+            <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+              {project.tech.map((t) => (
+                <span
+                  key={t}
+                  className="tech-badge"
+                  style={{ fontSize: "0.65rem" }}
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Arrow — own flex item, always top-right, never pushed out */}
+          <motion.div
+            animate={{ rotate: open ? 180 : 0 }}
+            transition={{ duration: 0.2 }}
+            style={{ flexShrink: 0, marginTop: 3 }}
+          >
+            <HiChevronDown size={18} style={{ color: "var(--text-muted)" }} />
+          </motion.div>
+        </div>
+      ) : (
+        /* ── Desktop header: unchanged ── */
+        <div
+          onClick={() => setOpen((o) => !o)}
           style={{
             display: "flex",
             alignItems: "center",
-            gap: 16,
-            flex: isMobile ? "1 1 100%" : 1,
             justifyContent: "space-between",
+            padding: "20px 24px",
+            cursor: "pointer",
+            gap: 12,
+            flexWrap: "wrap",
           }}
         >
-          <>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 16,
+              flex: 1,
+              justifyContent: "space-between",
+            }}
+          >
             <div
               style={{
                 display: "flex",
@@ -413,7 +485,6 @@ function ListRow({ project, index }) {
                   boxShadow: `0 0 10px ${project.color || "var(--accent)"}`,
                 }}
               />
-
               <div style={{ minWidth: 0 }}>
                 <h3
                   style={{
@@ -425,7 +496,6 @@ function ListRow({ project, index }) {
                 >
                   {project.title}
                 </h3>
-
                 <p
                   style={{
                     fontSize: "0.78rem",
@@ -440,49 +510,27 @@ function ListRow({ project, index }) {
                 </p>
               </div>
             </div>
+          </div>
 
-            {/* ✅ ARROW NOW HERE */}
-            {isMobile && (
-              <motion.div
-                animate={{ rotate: open ? 180 : 0 }}
-                transition={{ duration: 0.2 }}
-              >
-                <HiChevronDown
-                  size={16}
-                  style={{ color: "var(--text-muted)" }}
-                />
-              </motion.div>
-            )}
-          </>
-        </div>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 10,
-            flexWrap: isMobile ? "wrap" : "nowrap",
-            width: isMobile ? "100%" : "auto",
-            justifyContent: "flex-start",
-          }}
-        >
           <div
             style={{
               display: "flex",
-              gap: 6,
-              flexWrap: "wrap",
+              alignItems: "center",
+              gap: 10,
+              flexWrap: "nowrap",
             }}
           >
-            {project.tech.map((t) => (
-              <span
-                key={t}
-                className="tech-badge"
-                style={{ fontSize: "0.65rem" }}
-              >
-                {t}
-              </span>
-            ))}
-          </div>
-          {!isMobile && (
+            <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+              {project.tech.map((t) => (
+                <span
+                  key={t}
+                  className="tech-badge"
+                  style={{ fontSize: "0.65rem" }}
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
             <motion.div
               style={{ marginLeft: "auto" }}
               animate={{ rotate: open ? 180 : 0 }}
@@ -490,10 +538,11 @@ function ListRow({ project, index }) {
             >
               <HiChevronDown size={16} style={{ color: "var(--text-muted)" }} />
             </motion.div>
-          )}
+          </div>
         </div>
-      </div>
+      )}
 
+      {/* Expanded detail — same for both */}
       <AnimatePresence>
         {open && (
           <motion.div
