@@ -378,3 +378,40 @@ section {
   border-radius: 2px;
   margin-bottom: 20px;
 }
+
+/* ─── MOBILE-SPECIFIC FIXES ──────────────────────────────────── */
+@media (max-width: 768px) {
+  /* ── Contact heading overflow ──
+     Large headings (e.g. "Let's Build Something Together") get
+     clipped by the card's overflow:hidden on narrow screens.
+     Allow words to wrap and reduce font on tiny screens. */
+  h1,
+  h2,
+  h3 {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  /* ── Hero floating tech-badge cloud ──
+     The absolutely-positioned decorative badge cluster overlaps the
+     hero text on mobile. Hide it so content stays readable. */
+  .hero-floating-tags,
+  .floating-tags,
+  .tech-float {
+    display: none !important;
+  }
+
+  /* ── Section title font cap ──
+     Ensure no section heading exceeds 2rem on phones. */
+  .section-title {
+    font-size: clamp(1.6rem, 5vw, 2rem);
+  }
+}
+
+@media (max-width: 480px) {
+  /* Extra clamp for very small screens (e.g. Samsung M10) */
+  .section-title {
+    font-size: 1.6rem;
+  }
+}

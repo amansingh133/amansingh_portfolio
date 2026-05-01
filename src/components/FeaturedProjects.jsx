@@ -12,19 +12,27 @@ export default function FeaturedProjects() {
   const [activeCard, setActiveCard] = useState(0);
   const isMobile = useIsMobile(768);
 
-  // Touch swipe handling
-  const touchStartX = useRef(null);
+  // Track touch direction so horizontal swipes don't fight with page scroll
+  const touchStart = useRef({ x: 0, y: 0 });
+  const isHoriz = useRef(false);
+
   const handleTouchStart = (e) => {
-    touchStartX.current = e.touches[0].clientX;
+    touchStart.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+    isHoriz.current = false;
+  };
+  const handleTouchMove = (e) => {
+    const dx = Math.abs(e.touches[0].clientX - touchStart.current.x);
+    const dy = Math.abs(e.touches[0].clientY - touchStart.current.y);
+    if (!isHoriz.current && (dx > 5 || dy > 5)) isHoriz.current = dx > dy;
+    // if (isHoriz.current) e.preventDefault();
   };
   const handleTouchEnd = (e) => {
-    if (touchStartX.current === null) return;
-    const diff = touchStartX.current - e.changedTouches[0].clientX;
+    if (!isHoriz.current) return;
+    const diff = touchStart.current.x - e.changedTouches[0].clientX;
     if (Math.abs(diff) > 40) {
       if (diff > 0) setActiveCard((c) => Math.min(c + 1, featured.length - 1));
       else setActiveCard((c) => Math.max(c - 1, 0));
     }
-    touchStartX.current = null;
   };
 
   return (
@@ -82,15 +90,17 @@ export default function FeaturedProjects() {
         </motion.div>
 
         {isMobile ? (
-          /* ── Mobile: horizontal swipe carousel ── */
+          /* ── Mobile: swipe carousel ── */
           <>
             <div
               style={{
                 overflow: "hidden",
                 position: "relative",
                 borderRadius: 20,
+                touchAction: "pan-y",
               }}
               onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
             >
               <div
@@ -112,8 +122,6 @@ export default function FeaturedProjects() {
                 ))}
               </div>
             </div>
-
-            {/* Counter */}
             <p
               style={{
                 textAlign: "center",
@@ -127,9 +135,8 @@ export default function FeaturedProjects() {
             </p>
           </>
         ) : (
-          /* ── Desktop: stacked card UI ── */
+          /* ── Desktop: stacked card UI — unchanged ── */
           <>
-            {/* Selector tabs */}
             <div
               style={{
                 display: "flex",
@@ -161,8 +168,6 @@ export default function FeaturedProjects() {
                 </motion.button>
               ))}
             </div>
-
-            {/* Card stack */}
             <div
               style={{ position: "relative", height: 520, marginBottom: 20 }}
             >
@@ -207,7 +212,7 @@ export default function FeaturedProjects() {
           </>
         )}
 
-        {/* Dot nav — shown on both */}
+        {/* Dot nav */}
         <div
           style={{
             display: "flex",
