@@ -17,10 +17,11 @@ const FLOAT_SKILLS = [
   "Node.js",
   "Kafka",
   "MongoDB",
-  "Socket.IO",
-  "TypeScript",
   "Redis",
-  "Next.js",
+  "LangChain.js",
+  "MongoDB Atlas Vector Search",
+  "Meta Graph API",
+  "Docker",
 ];
 
 export default function Hero() {
