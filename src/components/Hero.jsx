@@ -175,6 +175,8 @@ export default function Hero() {
                 1800,
                 "Real-Time Systems Dev",
                 1800,
+                "AI & RAG Developer",
+                1800,
               ]}
               wrapper="span"
               speed={60}

@@ -8,7 +8,7 @@ export default function About() {
   const isMobile = useIsMobile(768);
 
   const stats = [
-    { value: "4+", label: "Years Experience" },
+    { value: "3+", label: "Years Experience" },
     { value: "10+", label: "Projects Shipped" },
     { value: "5+", label: "Tech Stacks" },
     { value: "2", label: "Languages" },
