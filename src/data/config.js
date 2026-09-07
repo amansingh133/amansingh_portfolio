@@ -223,7 +223,7 @@ export const CONFIG = {
       tech: ["MERN", "Redux", "Meta Graph API", "Firebase FCM", "JWT", "RBAC"],
       category: "Full Stack",
       featured: true,
-      liveUrl: "http://crm.169.58.104.255.sslip.io/",
+      liveUrl: "https://crm.ssapcoworking.com/",
       githubUrl: "https://github.com/aman-projects-133/lead-aggregator",
       color: "#a855f7",
     },
